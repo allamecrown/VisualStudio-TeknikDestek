@@ -19,8 +19,8 @@ namespace SqlPrograms
             InitializeComponent();
         }
         #region sql'e baglanti
-        SqlConnection baglantı = new SqlConnection("Data Source = DESKTOP - MSE4Q0T/SQLEXPRESS; Initial Catalog = kisiler; Integrated Security = True"); // Sql connection ile bağlanacağı sql
-                                                                                                                                    // server yolunu gösterdik.
+        SqlConnection baglantı = new SqlConnection("Data Source=[ALLAMECROWN/SQLEXPRESS];Initial Catalog=kisiler;Integrated Security=True"); // Sql connection ile bağlanacağı sql
+                                                                              // server=[server_name];Database=db_name;Integrated Security=true                                                        // server yolunu gösterdik.
         #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -41,7 +41,7 @@ namespace SqlPrograms
             #region sqlsorgu
             else
             {
-                baglantı.Open(); // Yukarıda ki yolu bağlatıyı aç diyerek etkinleştirdik.
+               baglantı.Open(); // Yukarıda ki yolu bağlatıyı aç diyerek etkinleştirdik.
                 SqlCommand komut = new SqlCommand("select * from kisiler where username= '" + usernametxtbx.Text + " ' and password='" + passwordtxtbx.Text + "'", baglantı); // Sql
                 // command komutu ile sql sorgu diline geçiş yaptık ve kullanıcı adı kutusunu ve şifre kutusunu ekleyerek verileri karşılaştırdık. En sonunda bağlantıyı aktif ederek
                 // bağlandık.
@@ -57,7 +57,7 @@ namespace SqlPrograms
                               MessageBox.Show("Hatalı Giriş"); // Bukarıdaki değil ise ekrana "Hatalı Giriş"yaz dedik.
                             }
 
-                baglantı.Close();
+               baglantı.Close();
             }
             #endregion
         }
